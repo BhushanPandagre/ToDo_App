@@ -1,0 +1,179 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .add-button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Todo List</h2>
+    <button class="add-button" onclick="addTask()">Add Task</button>
+    <table id="todoTable">
+        <tr>
+            <th>ID</th>
+            <th>Task</th>
+            <th>Action</th>
+        </tr>
+    </table>
+
+    <script>
+        let todo = [];
+
+        function renderTodo() {
+            const tableBody = document.getElementById("todoTable").getElementsByTagName('tbody')[0];
+            tableBody.innerHTML = "";
+
+            for(let i = 0; i < todo.length; i++) {
+                const row = tableBody.insertRow(i);
+                const cell1 = row.insertCell(0);
+                const cell2 = row.insertCell(1);
+                const cell3 = row.insertCell(2);
+
+                cell1.innerHTML = i + 1;
+                cell2.innerHTML = todo[i];
+                cell3.innerHTML = `<button onclick="deleteTask(${i})">Delete</button>`;
+            }
+        }
+
+        function addTask() {
+            const task = prompt("Enter task you want to add ");
+            if (task !== null && task.trim() !== "") {
+                todo.push(task.trim());
+                renderTodo();
+            }
+        }
+
+        function deleteTask(index) {
+            todo.splice(index, 1);
+            renderTodo();
+        }
+
+        // Initial rendering
+        renderTodo();
+    </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 20px; /* Adjust top padding for spacing */
+        }
+        table {
+            width: 70%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .add-button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Todo List</h2>
+        <button class="add-button" onclick="addTask()">Add Task</button>
+        <table id="todoTable">
+            <tr>
+                <th>ID</th>
+                <th>Task</th>
+                <th>Action</th>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        let todo = [];
+
+        function renderTodo() {
+            const tableBody = document.getElementById("todoTable").getElementsByTagName('tbody')[0];
+            tableBody.innerHTML = "";
+
+            for(let i = 0; i < todo.length; i++) {
+                const row = tableBody.insertRow(i);
+                const cell1 = row.insertCell(0);
+                const cell2 = row.insertCell(1);
+                const cell3 = row.insertCell(2);
+
+                cell1.innerHTML = i + 1;
+                cell2.innerHTML = todo[i];
+                cell3.innerHTML = `<button onclick="deleteTask(${i})">Delete</button>`;
+            }
+        }
+
+        function addTask() {
+            const task = prompt("Enter task you want to add ");
+            if (task !== null && task.trim() !== "") {
+                todo.push(task.trim());
+                renderTodo();
+            }
+        }
+
+        function deleteTask(index) {
+            todo.splice(index, 1);
+            renderTodo();
+        }
+
+        // Initial rendering
+        renderTodo();
+    </script>
+</body>
+</html>
+
